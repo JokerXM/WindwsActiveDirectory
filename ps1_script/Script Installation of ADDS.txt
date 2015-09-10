@@ -1,0 +1,22 @@
+#
+# Windows PowerShell script for AD DS Deployment
+#
+
+Import-Module ADDSDeployment
+Install-ADDSDomain `
+-NoGlobalCatalog:$false `
+-CreateDnsDelegation:$true `
+-Credential (Get-Credential) `
+-DatabasePath "C:\Windows\NTDS" `
+-DomainMode "Win2008R2" `
+-DomainType "ChildDomain" `
+-InstallDns:$true `
+-LogPath "C:\Windows\NTDS" `
+-NewDomainName "Europe" `
+-NewDomainNetbiosName "EUROPE0" `
+-ParentDomainName "Shiptruck.lan" `
+-NoRebootOnCompletion:$false `
+-SiteName "Default-First-Site-Name" `
+-SysvolPath "C:\Windows\SYSVOL" `
+-Force:$true
+
